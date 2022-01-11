@@ -1,0 +1,1 @@
+CUDA_VISIBLE_DEVICES=3 python detect.py --source /home/ansh.arora/IIITA_Winter21/YOLOv5-CustomDataset/Object_Detection/images/test --weights runs/train/yolo_road_det2/weights/best.pt --conf 0.25 --name yolo_road_det

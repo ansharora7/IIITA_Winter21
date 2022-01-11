@@ -5,3 +5,5 @@ zip_files/*
 bdd100k.zip
 kaggle.json
 object-detection-for-autonomous-vehicles.zip
+YOLOv5-CustomDataset/runs/train/yolo_road_det/weights/*
+YOLOv5-CustomDataset/runs/train/yolo_road_det2/weights/*

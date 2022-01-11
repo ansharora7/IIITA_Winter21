@@ -1,0 +1,136 @@
+train: weights=yolov5s.pt, cfg=yolov5s.yaml, data=bdd100k.yaml, hyp=hyp.scratch.yaml, epochs=10, batch_size=8, imgsz=720, rect=False, resume=False, nosave=False, noval=False, noautoanchor=False, [112/283]
+ne, bucket=, cache=None, image_weights=False, device=, multi_scale=False, single_cls=False, adam=False, sync_bn=False, workers=24, project=runs/train, name=yolo_road_det, exist_ok=False, quad=False, linea
+r_lr=False, label_smoothing=0.0, patience=100, freeze=[0], save_period=-1, local_rank=-1, entity=None, upload_dataset=False, bbox_interval=-1, artifact_alias=latest                                        
+github: _ YOLOv5 is out of date by 26 commits. Use `git pull` or `git clone https://github.com/ultralytics/yolov5` to update.                                                                               
+YOLOv5 __ v6.0-159-gdb6ec66 torch 1.10.1 CUDA:0 (Tesla V100-PCIE-32GB, 32510MiB)                                                                                                                            
+                                                                                                                                                                                                            
+hyperparameters: lr0=0.01, lrf=0.1, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=0.05, cls=0.5, cls_pw=1.0, obj=1.0, obj_pw=1.0, iou_t=0.2, anchor_t
+=4.0, fl_gamma=0.0, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.1, scale=0.5, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, mosaic=1.0, mixup=0.0, copy_paste=0.0                     
+Weights & Biases: run 'pip install wandb' to automatically track and visualize YOLOv5 __ runs (RECOMMENDED)                                                                                                 
+TensorBoard: Start with 'tensorboard --logdir runs/train', view at http://localhost:6006/                                                                                                                   
+Overriding model.yaml nc=80 with nc=13                                                                                                                                                                      
+                                                                                                                                                                                                            
+                 from  n    params  module                                  arguments                                                                                                                       
+  0                -1  1      3520  models.common.Conv                      [3, 32, 6, 2, 2]                                                                                                                
+  1                -1  1     18560  models.common.Conv                      [32, 64, 3, 2]                                                                                                                  
+  2                -1  1     18816  models.common.C3                        [64, 64, 1]                                                                                                                     
+  3                -1  1     73984  models.common.Conv                      [64, 128, 3, 2]                                                                                                                 
+  4                -1  2    115712  models.common.C3                        [128, 128, 2]                                                                                                                   
+  5                -1  1    295424  models.common.Conv                      [128, 256, 3, 2]                                                                                                                
+  6                -1  3    625152  models.common.C3                        [256, 256, 3]                                                                                                                   
+  7                -1  1   1180672  models.common.Conv                      [256, 512, 3, 2]                                                                                                                
+  8                -1  1   1182720  models.common.C3                        [512, 512, 1]                                                                                                                   
+  9                -1  1    656896  models.common.SPPF                      [512, 512, 5]                                                                                                                   
+ 10                -1  1    131584  models.common.Conv                      [512, 256, 1, 1]                                                                                                                
+ 11                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']                                                                                                            
+ 12           [-1, 6]  1         0  models.common.Concat                    [1]                                                                                                                             
+ 13                -1  1    361984  models.common.C3                        [512, 256, 1, False]                                                                                                            
+ 14                -1  1     33024  models.common.Conv                      [256, 128, 1, 1]                                                                                                                
+ 15                -1  1         0  torch.nn.modules.upsampling.Upsample    [None, 2, 'nearest']                                                                                                            
+ 16           [-1, 4]  1         0  models.common.Concat                    [1]                                                                                                                             
+ 17                -1  1     90880  models.common.C3                        [256, 128, 1, False]                                                                                                            
+ 18                -1  1    147712  models.common.Conv                      [128, 128, 3, 2]                                                                                                                
+ 19          [-1, 14]  1         0  models.common.Concat                    [1]                                                                                                                             
+ 20                -1  1    296448  models.common.C3                        [256, 256, 1, False]                                                                                                            
+ 21                -1  1    590336  models.common.Conv                      [256, 256, 3, 2]                                                                                                                
+ 22          [-1, 10]  1         0  models.common.Concat                    [1]                                                                                                                             
+ 23                -1  1   1182720  models.common.C3                        [512, 512, 1, False]                                                                                                            
+ 24      [17, 20, 23]  1     48546  models.yolo.Detect                      [13, [[10, 13, 16, 30, 33, 23], [30, 61, 62, 45, 59, 119], [116, 90, 156, 198, 373, 326]], [128, 256, 512]]
+Model Summary: 270 layers, 7054690 parameters, 7054690 gradients, 16.0 GFLOPs                                                                                                                               
+
+Transferred 342/349 items from yolov5s.pt                                                             
+WARNING: --img-size 720 must be multiple of max stride 32, updating to 736                                                                                                                                  
+Scaled weight_decay = 0.0005                       
+optimizer: SGD with parameter groups 57 weight, 60 weight (no decay), 60 bias                                                                                                                               
+train: Scanning '../Object_Detection/labels/train.cache' images and labels... 55890 found, 0 missing, 8 empty, 0 corrupted: 100%|_| 55890/558
+train: WARNING: ../Object_Detection/images/train/8b94691f-0b47c5c3.jpg: 1 duplicate labels removed                                                                                                          
+train: WARNING: ../Object_Detection/images/train/8bd9f0c0-28e8c5b1.jpg: 1 duplicate labels removed                                                                                                          
+val: Scanning '../Object_Detection/labels/val.cache' images and labels... 13973 found, 0 missing, 2 empty, 0 corrupted: 100%|_| 13973/13973 [
+Plotting labels to runs/train/yolo_road_det8/labels.jpg...                                            
+
+AutoAnchor: 3.79 anchors/target, 0.989 Best Possible Recall (BPR). Current anchors are a good fit to dataset __                                                                                             
+Image sizes 736 train, 736 val                     
+Using 8 dataloader workers                         
+Logging results to runs/train/yolo_road_det8 
+
+Starting training for 10 epochs...                                                                                                                                                                  [58/283]
+
+     Epoch   gpu_mem       box       obj       cls    labels  img_size                                                                                                                                      
+       0/9     2.26G   0.06101   0.08639   0.01892        30       736: 100%|__________| 6987/6987 [19:21<00:00,  6.02it/s]                  
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [04:03<00:00,  3.59it/s]          
+                 all      13973     255545      0.773      0.215      0.237      0.115                                                                                                                      
+
+     Epoch   gpu_mem       box       obj       cls    labels  img_size                                
+       1/9     2.09G    0.0504   0.08205   0.01046        49       736: 100%|__________| 6987/6987 [18:42<00:00,  6.23it/s]                        
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [06:22<00:00,  2.29it/s]          
+                 all      13973     255545      0.764      0.261      0.284      0.145                                                                                                                      
+
+     Epoch   gpu_mem       box       obj       cls    labels  img_size                                
+       2/9     2.09G   0.04816   0.08192  0.009611        56       736: 100%|__________| 6987/6987 [18:04<00:00,  6.44it/s]                        
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [04:02<00:00,  3.61it/s]          
+                 all      13973     255545      0.719      0.293      0.311      0.158                                                                                                                      
+
+     Epoch   gpu_mem       box       obj       cls    labels  img_size                                
+       3/9     2.09G   0.04568   0.08099  0.008957        45       736: 100%|__________| 6987/6987 [18:31<00:00,  6.29it/s]                        
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [03:49<00:00,  3.80it/s]          
+                 all      13973     255545      0.734      0.314      0.336      0.173                                                                                                                      
+
+     Epoch   gpu_mem       box       obj       cls    labels  img_size                                
+       4/9     2.09G   0.04448    0.0796   0.00839       164       736: 100%|__________| 6987/6987 [18:26<00:00,  6.31it/s]                        
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [06:11<00:00,  2.35it/s]          
+                 all      13973     255545      0.742      0.325      0.349      0.181                                                                                                                      
+
+     Epoch   gpu_mem       box       obj       cls    labels  img_size                                
+       5/9     2.09G   0.04314   0.07818  0.007902        46       736: 100%|__________| 6987/6987 [18:17<00:00,  6.37it/s]                        
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [04:14<00:00,  3.43it/s]          
+                 all      13973     255545      0.762      0.327      0.359      0.188                                                                                                                      
+
+     Epoch   gpu_mem       box       obj       cls    labels  img_size                                
+       6/9     2.09G   0.04222   0.07731  0.007516        54       736: 100%|__________| 6987/6987 [18:27<00:00,  6.31it/s]                        
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [03:45<00:00,  3.87it/s]          
+                 all      13973     255545      0.781      0.328      0.371      0.196                                                                                                                      
+
+     Epoch   gpu_mem       box       obj       cls    labels  img_size                                
+       7/9     2.09G   0.04134   0.07582  0.007205        91       736: 100%|__________| 6987/6987 [18:26<00:00,  6.31it/s]                        
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [04:57<00:00,  2.94it/s]          
+                 all      13973     255545      0.792      0.328      0.375      0.199                                                                                                                      
+
+     Epoch   gpu_mem       box       obj       cls    labels  img_size                                
+       8/9     2.09G   0.04067   0.07539  0.006906        65       736: 100%|__________| 6987/6987 [18:03<00:00,  6.45it/s]                        
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [05:22<00:00,  2.71it/s]          
+                 all      13973     255545      0.688      0.347       0.38      0.202                                                                                                                      
+
+     Epoch   gpu_mem       box       obj       cls    labels  img_size                                
+       9/9     2.09G   0.04023   0.07459  0.006762       387       736:  74%|________  | 5173/6987 [13:36<06:11,  4.88it/s]                        ^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^[[B^
+       9/9     2.09G   0.04022   0.07456  0.006762       288       736:  77%|________  | 5382/6987 [14:38<05:40,  4.71it/s]                        ^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^
+       9/9     2.09G   0.04023   0.07461  0.006736        80       736: 100%|__________| 6987/6987 [19:10<00:00,  6.07it/s]                        ^[[A^[[A
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [03:46<00:00,  3.87it/s]                                                                   
+                 all      13973     255545      0.738      0.341      0.385      0.205
+
+
+10 epochs completed in 3.881 hours.
+Optimizer stripped from runs/train/yolo_road_det8/weights/last.pt, 14.5MB
+Optimizer stripped from runs/train/yolo_road_det8/weights/best.pt, 14.5MB
+
+Validating runs/train/yolo_road_det8/weights/best.pt...
+Fusing layers... 
+Model Summary: 213 layers, 7045186 parameters, 0 gradients, 15.9 GFLOPs
+Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95:  96%|__________| 842/874 [09:40<00:17,  1.83it/s]                                               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95:  96%|__________| 8
+43/874 [09:41<00:17,  1.76it/s]                                               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95:  97%|__________| 844/874 [09:41<00:16,  1.83it/s]    
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|__________| 874/874 [09:57<00:00,  1.46it/s]                                                                   
+                 all      13973     255545      0.729      0.345      0.385      0.205
+          pedestrian      13973      18757      0.709      0.511      0.579      0.261
+               rider      13973        878       0.67      0.343      0.408      0.198
+                 car      13973     139193      0.764      0.701      0.761      0.464
+                 truck      13973       5471      0.643      0.523      0.556      0.391
+                 bus      13973       2411      0.685       0.52      0.578      0.426
+               train      13973         20          1          0   0.000113   9.07e-05
+          motorcycle      13973        601      0.665      0.343      0.404       0.18
+             bicycle      13973       1463      0.666      0.449      0.492      0.218
+       traffic light      13973      38270      0.623      0.532      0.539      0.182
+        traffic sign      13973      48257      0.717      0.562      0.616      0.296
+             trailer      13973         10          1          0     0.0001   8.03e-05
+        other person      13973         39          1          0          0          0
+       other vehicle      13973        175      0.333    0.00571     0.0742     0.0436
+Results saved to runs/train/yolo_road_det8
+

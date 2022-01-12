@@ -1,0 +1,30 @@
+val: data=/home/ansh.arora/IIITA_Winter21/YOLOv5-CustomDataset/yolov5/data/bdd100k.yaml, weights=['runs/train/yolo_road_det3/weights/best.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.6, task=test, device=, workers=8, single_cls=False, augment=False, verbose=False, save_txt=False, save_hybrid=False, save_conf=False, save_json=False, project=runs/val, name=yolo_det, exist_ok=False, half=False, dnn=False
+YOLOv5 🚀 v6.0-159-gdb6ec66 torch 1.10.1 CUDA:0 (Tesla V100-PCIE-32GB, 32510MiB)
+
+Fusing layers... 
+Model Summary: 213 layers, 7045186 parameters, 0 gradients, 15.9 GFLOPs
+test: Scanning '../Object_Detection/labels/test' images and labels...10000 found, 0 missing, 0 empty, 0 corrupted: 100%|█| 10000/10000 [00:00<00:00
+test: New cache created: ../Object_Detection/labels/test.cache
+               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100%|██████████| 313/313 [05:20<00:00,  1.02s/it]          
+                 all      10000     186033      0.697        0.3      0.309      0.157
+          pedestrian      10000      13425      0.563      0.459      0.473      0.193
+               rider      10000        658      0.574      0.261      0.285      0.116
+                 car      10000     102837      0.674      0.687      0.716      0.427
+               truck      10000       4243      0.582      0.498      0.517      0.345
+                 bus      10000       1660      0.505      0.449      0.467      0.339
+               train      10000         15          1          0          0          0
+          motorcycle      10000        460       0.57      0.196      0.226     0.0964
+             bicycle      10000       1039      0.416       0.31      0.289      0.116
+       traffic light      10000      26884      0.545      0.518      0.492      0.158
+        traffic sign      10000      34724      0.631      0.518       0.54      0.251
+             trailer      10000          2          1          0          0          0
+        other person      10000          1          1          0          0          0
+       other vehicle      10000         85          1          0    0.00837    0.00426
+Speed: 0.1ms pre-process, 2.5ms inference, 3.7ms NMS per image at shape (32, 3, 640, 640)
+Results saved to runs/val/yolo_det3
+
+Precision - 0.697
+Recall - 0.3
+F1 Score - 0.419
+mAP@.5 - 0.309
+mAP@.5:.95 - 0.157
